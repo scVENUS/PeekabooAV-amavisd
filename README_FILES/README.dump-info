@@ -1,0 +1,27 @@
+# amavis dump_info #
+
+dump_info creates a .info file for every processed attachment that contains
+internal meta information determined by amavis. It can be used by av_scanners.
+E.g. for behavioural analysis checking in sandboxes where the original file
+extension is required.
+
+
+## example p002.info ##
+
+[attachment]
+full_name:     : /var/lib/amavis/tmp/amavis-20170427T174709-03863-dIJwSsyE/parts/p002
+name_declared: : hugo.txt
+type_declared: : text/plain
+type_long:     : ASCII text
+type_short:    : asc
+size:          : 14
+digest:        : fecf3151ca5ce7b9d24defdc140edc0eefaaeaed:text/plain
+attributes:    : 
+queue_id:      : 96C866A02E4
+
+
+## configuration ##
+
+$enable_dump_info  = 0;       # set to 1 to enable dump_info feature
+$dump_info_tempdir = '/tmp';  # base directory where dump_info() will put its stuff
+

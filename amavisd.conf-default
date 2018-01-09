@@ -944,4 +944,18 @@ use strict;
     ##   @addr_extension_virus_maps  @addr_extension_spam_maps
     ##   @addr_extension_banned_maps @addr_extension_bad_header_maps
 
+
+## dump-info, please see file README.dump-info for more info.
+
+# $enable_dump_info  = 0;       # set to 1 to enable dump_info feature
+# $dump_info_tempdir = '/tmp';  # base directory where dump_info() will put its stuff
+
+# Change the default mail digest from MD5 and SHA-1 to SHA-256.
+# This is mandatory to correlate Peekaboo results with mail logs, since
+# Peekaboo uses SHA-256.
+
+# $mail_digest_algorithm = 'SHA-256';
+# $mail_part_digest_algorithm = 'SHA-256';
+
+
 1;  # insure a defined return value
