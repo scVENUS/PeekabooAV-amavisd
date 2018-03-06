@@ -31624,7 +31624,9 @@ sub dump_info {
                        queue_id
                       )) {
             my $val = $part->can($field) ? $part->$field() : $Amavis::MSGINFO->$field();
-            printf $info_fh "%-15s: %s\n", "$field:", ref $val eq 'ARRAY' ? $val->[-1] : $val;
+            $val = ref $val eq 'ARRAY' ? $val->[-1] : $val;
+            $val = Amavis::Util::safe_decode_mime($val) if $field eq "name_declared";
+            printf $info_fh "%-15s: %s\n", "$field:", $val;
         }
         close $info_fh;
 
