@@ -31610,7 +31610,7 @@ sub dump_info {
     $dir_name =~ s|/parts||;
     mkdir $dir_name, 0770 or warn "couldn't create $dir_name: $!" unless -d $dir_name;
     my $info_file = "$dir_name/$base_name.info";
-    if (open my $info_fh, ">", $info_file) {
+    if (open my $info_fh, ">:encoding(UTF-8)", $info_file) {
         printf $info_fh "[attachment]\n";
         for my $field (qw(
                        full_name
