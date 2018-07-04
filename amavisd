@@ -10464,6 +10464,9 @@ sub mime_traverse($$$$$) {
       if (defined($size) && $size==0) {
         $part->type_short('empty'); $part->type_long('empty');
       }
+      ll(2) && do_log(2, "%s %s Content-Type: %s, size: %d B, md5: %s, name: %s",
+                $part->base_name, $placement, $mt, $size, Digest::MD5::md5_hex($body->as_string),
+                $entity->head->recommended_filename);	  
       my $digest;
       if ($digest_ctx) {
         $digest = $digest_ctx->hexdigest;
